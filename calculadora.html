@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Funções para realizar operações matemáticas
+function soma(a, b) {
+    return a + b;
+}
+
+function subtracao(a, b) {
+    return a - b;
+}
+
+function multiplicacao(a, b) {
+    return a * b;
+}
+
+function divisao(a, b) {
+    if (b !== 0) {
+        return a / b;
+    } else {
+        return "Não é possível dividir por zero.";
+    }
+}
+
+// Função principal da calculadora
+function calculadora() {
+    const idioma = prompt("Escolha o idioma (português ou inglês): ").toLowerCase();
+
+    let def_menu, erro_opcao, entrada_a, entrada_b, resultado, div_por_zero;
+
+    if (idioma === "português") {
+        def_menu = "Escolha uma operação:\n1 - Soma\n2 - Subtração\n3 - Multiplicação\n4 - Divisão\nEscolha: ";
+        erro_opcao = "Opção inválida. Escolha uma operação válida.";
+        entrada_a = "Digite o primeiro número: ";
+        entrada_b = "Digite o segundo número: ";
+        resultado = "O resultado é: ";
+        div_por_zero = "Não é possível dividir por zero.";
+    } else {
+        def_menu = "Choose an operation:\n1 - Addition\n2 - Subtraction\n3 - Multiplication\n4 - Division\nChoice: ";
+        erro_opcao = "Invalid option. Choose a valid operation.";
+        entrada_a = "Enter the first number: ";
+        entrada_b = "Enter the second number: ";
+        resultado = "The result is: ";
+        div_por_zero = "Cannot divide by zero.";
+    }
+
+    alert("----- Calculadora -----");
+
+    let op = parseInt(prompt(def_menu));
+
+    if (op < 1 || op > 4) {
+        alert(erro_opcao);
+    } else {
+        let num1 = parseFloat(prompt(entrada_a));
+        let num2 = parseFloat(prompt(entrada_b));
+
+        if (op === 1) {
+            alert(resultado + soma(num1, num2));
+        } else if (op === 2) {
+            alert(resultado + subtracao(num1, num2));
+        } else if (op === 3) {
+            alert(resultado + multiplicacao(num1, num2));
+        } else {
+            const divisao_resultado = divisao(num1, num2);
+            if (divisao_resultado === div_por_zero) {
+                alert(divisao_resultado);
+            } else {
+                alert(resultado + divisao_resultado);
+            }
+        }
+    }
+}
+
+// Chamada da função calculadora para iniciar a interação
+calculadora();
+
+    </script>
+</body>
+</html>
